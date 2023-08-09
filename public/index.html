@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="manifest" href="manifest.json">
+    <title>Advanced Calculator </title>
+</head>
+
+<body>
+    <h1>Advanced Calculator</h1>
+    <div class="calculator">
+        <input id="result" type="text" disabled>
+        <div class="buttons">
+            <button onclick="appendToResult('7')">7</button>
+            <button onclick="appendToResult('8')">8</button>
+            <button onclick="appendToResult('9')">9</button>
+            <button onclick="appendToResult('/')">/</button>
+            <button onclick="appendToResult('4')">4</button>
+            <button onclick="appendToResult('5')">5</button>
+            <button onclick="appendToResult('6')">6</button>
+            <button onclick="appendToResult('*')">*</button>
+            <button onclick="appendToResult('1')">1</button>
+            <button onclick="appendToResult('2')">2</button>
+            <button onclick="appendToResult('3')">3</button>
+            <button onclick="appendToResult('-')">-</button>
+            <button onclick="appendToResult('0')">0</button>
+            <button onclick="appendToResult('.')">.</button>
+            <button onclick="calculate()">=</button>
+            <button onclick="clearResult()">C</button>
+            <button onclick="appendToResult('+')">+</button>
+        </div>
+    </div>
+
+    <script src="main.js"></script>
+    <script>
+        if ('serviceWorker' in navigator) {
+          window.addEventListener('load', () => {
+            navigator.serviceWorker.register('/service-worker.js')
+              .then(registration => {
+                console.log('Service Worker registered with scope:', registration.scope);
+              })
+              .catch(error => {
+                console.log('Service Worker registration failed:', error);
+              });
+          });
+        }
+      </script>
+
+</body>
+
+</html>
